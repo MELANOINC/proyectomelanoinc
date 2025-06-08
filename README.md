@@ -38,3 +38,16 @@ MELANO INC – Documentación Técnica de Arquitectura con Agentes IA Interconec
 - Auto-deploy si tests y linters pasan
 - Notificaciones en Slack vía Agent Chronos
 
+
+## 🚀 Quickstart
+
+```bash
+# Install dependencies
+pip install -r requirements.txt
+
+# Run development server
+uvicorn melania.main:app --reload
+
+# Run tests
+pytest
+```
