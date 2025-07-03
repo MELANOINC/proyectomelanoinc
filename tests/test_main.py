@@ -15,3 +15,10 @@ def test_read_root() -> None:
     response = client.get("/")
     assert response.status_code == 200
     assert response.json() == {"message": "MELANO INC API Online"}
+
+
+def test_chat_endpoint() -> None:
+    payload = {"user_id": "test", "message": "hola"}
+    response = client.post("/hermes/chat", json=payload)
+    assert response.status_code == 200
+    assert "respuesta" in response.json()
