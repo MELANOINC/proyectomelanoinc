@@ -1,7 +1,7 @@
 """Simple training script using logged conversations."""
 from __future__ import annotations
 
-import json
+
 import sqlite3
 from pathlib import Path
 
@@ -26,14 +26,7 @@ def load_data():
 def train_model():
     texts, labels = load_data()
     if not texts:
-        print("No conversations to train on")
-        return
-    pipeline = Pipeline([
-        ("tfidf", TfidfVectorizer()),
-        ("clf", LogisticRegression()),
-    ])
-    pipeline.fit(texts, labels)
-    print(f"Trained model on {len(texts)} conversations")
+
 
 
 if __name__ == "__main__":

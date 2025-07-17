@@ -57,7 +57,7 @@ pytest
 El endpoint `POST /hermes/chat` almacena cada mensaje y la respuesta generada en
 una base de datos SQLite en `melania/conversations.db`. El script
 `melania/train.py` carga esas conversaciones para entrenar un modelo de ejemplo
-con `scikit-learn`.
+
 
 ```bash
 python -m melania.train
