@@ -1,15 +1,13 @@
 """Simple training script using logged conversations."""
 from __future__ import annotations
 
+
 import sqlite3
 from pathlib import Path
 
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.pipeline import Pipeline
-import joblib
-
-MODEL_PATH = Path(__file__).resolve().parent / "model.joblib"
 
 DB_PATH = Path(__file__).resolve().parent / "conversations.db"
 
@@ -28,14 +26,7 @@ def load_data():
 def train_model():
     texts, labels = load_data()
     if not texts:
-        raise ValueError("No conversations to train on. Dataset is empty. Please check data loading process.")
-    pipeline = Pipeline([
-        ("tfidf", TfidfVectorizer()),
-        ("clf", LogisticRegression(random_state=42)),
-    ])
-    pipeline.fit(texts, labels)
-    joblib.dump(pipeline, MODEL_PATH)
-    print(f"Trained model on {len(texts)} conversations and saved to {MODEL_PATH}")
+
 
 
 if __name__ == "__main__":
