@@ -28,8 +28,7 @@ def load_data():
 def train_model():
     texts, labels = load_data()
     if not texts:
-        print("No conversations to train on")
-        return
+        raise ValueError("No conversations to train on. Dataset is empty. Please check data loading process.")
     pipeline = Pipeline([
         ("tfidf", TfidfVectorizer()),
         ("clf", LogisticRegression()),
