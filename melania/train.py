@@ -31,7 +31,7 @@ def train_model():
         raise ValueError("No conversations to train on. Dataset is empty. Please check data loading process.")
     pipeline = Pipeline([
         ("tfidf", TfidfVectorizer()),
-        ("clf", LogisticRegression()),
+        ("clf", LogisticRegression(random_state=42)),
     ])
     pipeline.fit(texts, labels)
     joblib.dump(pipeline, MODEL_PATH)
