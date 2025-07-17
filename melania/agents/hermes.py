@@ -6,9 +6,14 @@ from ..conversations import log_conversation
 
 MODEL_PATH = Path(__file__).resolve().parent.parent / "model.joblib"
 
+import logging
+
+logging.basicConfig(level=logging.ERROR)
+
 try:
     MODEL = joblib.load(MODEL_PATH)
-except FileNotFoundError:
+except Exception as e:
+    logging.error(f"Failed to load model from {MODEL_PATH}: {e}")
     MODEL = None
 
 
