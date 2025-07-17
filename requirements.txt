@@ -3,3 +3,5 @@ uvicorn
 pytest
 flake8
 httpx==0.24.1
+scikit-learn
+joblib
