@@ -52,6 +52,10 @@ uvicorn melania.main:app --reload
 pytest
 ```
 
+## 🛰️ Estado del ecosistema
+
+El endpoint `GET /status` devuelve el estado de todos los agentes conectados.
+
 ## 📚 Conversaciones y entrenamiento
 
 El endpoint `POST /hermes/chat` almacena cada mensaje y la respuesta generada en

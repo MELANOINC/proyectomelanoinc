@@ -14,3 +14,14 @@ app.include_router(athena.router, prefix="/athena", tags=["athena"])
 @app.get("/")
 def read_root() -> dict:
     return {"message": "MELANO INC API Online"}
+
+
+@app.get("/status")
+def system_status() -> dict:
+    """Return the availability of all agents."""
+    return {
+        "hermes": hermes.status()["hermes"],
+        "ares": ares.status()["ares"],
+        "chronos": chronos.status()["chronos"],
+        "athena": athena.status()["athena"],
+    }
