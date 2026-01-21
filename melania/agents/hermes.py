@@ -1,6 +1,8 @@
 from fastapi import APIRouter
 from pydantic import BaseModel
 
+from ..conversations import log_conversation
+
 
 class Message(BaseModel):
     user_id: str
@@ -18,7 +20,7 @@ def status() -> dict:
 @router.post("/chat")
 def chat(message: Message) -> dict:
     """Simple chat endpoint that logs the conversation."""
-
+    respuesta = f"Echo: {message.message}"
     log_conversation(
         user_id=message.user_id,
         mensaje_usuario=message.message,

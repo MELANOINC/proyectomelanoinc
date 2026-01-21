@@ -26,7 +26,15 @@ def load_data():
 def train_model():
     texts, labels = load_data()
     if not texts:
-
+        return None
+    pipeline = Pipeline(
+        [
+            ("vectorizer", TfidfVectorizer()),
+            ("classifier", LogisticRegression(max_iter=1000)),
+        ]
+    )
+    pipeline.fit(texts, labels)
+    return pipeline
 
 
 if __name__ == "__main__":

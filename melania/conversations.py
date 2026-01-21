@@ -35,8 +35,16 @@ def log_conversation(
     conn = sqlite3.connect(DB_PATH)
     c = conn.cursor()
     c.execute(
-        "INSERT INTO conversations (user_id, mensaje_usuario, respuesta_melania, etiquetas) VALUES (?, ?, ?, ?)",
-        (user_id, mensaje_usuario, respuesta_melania, json.dumps(etiquetas or [])),
+        (
+            "INSERT INTO conversations (user_id, mensaje_usuario, "
+            "respuesta_melania, etiquetas) VALUES (?, ?, ?, ?)"
+        ),
+        (
+            user_id,
+            mensaje_usuario,
+            respuesta_melania,
+            json.dumps(etiquetas or []),
+        ),
     )
     conn.commit()
     conn.close()
