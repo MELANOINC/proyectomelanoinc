@@ -213,6 +213,8 @@ def test_read_root():
 git init
 git add .
 git commit -m "Initial MELANO INC workspace with FastAPI, Docker, CI/CD and tests"
-git remote add origin https://github.com/TU_USUARIO/TU_REPO.git
+git remote add origin <https://github.com/TU_USUARIO/TU_REPO.git>
 git branch -M main
 git push -u origin main
+
+docker-compose up --build
