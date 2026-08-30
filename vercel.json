@@ -1,0 +1,18 @@
+{
+  "builds": [
+    {
+      "src": "melania/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/static/(.*)",
+      "dest": "melania/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "melania/main.py"
+    }
+  ]
+}
