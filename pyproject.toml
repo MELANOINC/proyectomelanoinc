@@ -1,2 +1,14 @@
+[project]
+name = "proyectomelanoinc"
+version = "0.1.0"
+description = "Melano Incorporated AI agents service"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi",
+  "uvicorn",
+  "httpx==0.24.1",
+  "scikit-learn",
+]
+
 [tool.vercel]
 entrypoint = "melania/main.py"
